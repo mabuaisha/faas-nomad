@@ -31,3 +31,4 @@ faas-nomad
 
 # Remove Go vendor folder since we are using modules
 vendor
+.idea/
