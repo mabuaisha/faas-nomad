@@ -19,9 +19,11 @@ scrape_configs:
   - job_name: 'prometheus'
     # Override the global default and scrape targets from this job every 5 seconds.
     scrape_interval: 5s
-    consul_sd_configs:
-      - server: {{ env "NOMAD_IP_http" }}:8500
-        services: ["prometheus"]
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: ['localhost:9090']
 
   - job_name: "gateway"
     scrape_interval: 5s
